@@ -1,14 +1,10 @@
 library(shiny)
 
-shinyUI(fluidPage(
-  
+fluidPage(
   titlePanel(h2("Predicting Your Car's Fuel Efficiency", align="center")),
-  
+  br(), 
   br(),
-  br(),
-  
   sidebarLayout(
-    
     sidebarPanel(
       sliderInput("wt", "Weight of the car (in thousand pounds):",  
                   min = 1, max = 6, value = 3, step = .2, animate = FALSE),
@@ -18,12 +14,9 @@ shinyUI(fluidPage(
 
       selectInput("am", label = "Transmission Type",
                   choices = list("automatic" = "automatic", "manual" = "manual")),
-
-      
       br(),
       actionButton("goButton", "Predict!"),
       p("Click the button to find out your car's fuel efficiency.")
-      
     ),
     
     mainPanel(
@@ -40,9 +33,8 @@ shinyUI(fluidPage(
       h4("The trasmission of your car:"),
       verbatimTextOutput("am")
     )
-    
   )
-))
+)
 
 
 
